@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Divya Patil | AI & Data Science</title>
+
+    <meta name="description"
+        content="Divya Patil - AI & Data Science Student and Aspiring Software Developer">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b14;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 11, 20, 0.82);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c7c9d3;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 130px 9% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #6d28d9;
+            filter: blur(170px);
+            opacity: 0.22;
+            top: -180px;
+            right: -120px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+            z-index: 2;
+            animation: fadeUp 1s ease;
+        }
+
+        .small-title {
+            color: #a78bfa;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 82px);
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: #a78bfa;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #9ca3af;
+            max-width: 600px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 23px;
+            border-radius: 30px;
+            border: 1px solid #8b5cf6;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.25);
+        }
+
+        .btn-outline {
+            color: #ddd;
+        }
+
+        /* PHOTO */
+        .hero-photo {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            border: 2px solid #8b5cf6;
+            padding: 8px;
+            z-index: 2;
+            animation: float 4s ease-in-out infinite;
+            box-shadow: 0 0 70px rgba(139,92,246,0.25);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 9%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .section-title span {
+            color: #a78bfa;
+        }
+
+        .section-title p {
+            color: #8d93a1;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #a5a9b5;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info {
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            background: rgba(255,255,255,0.025);
+        }
+
+        .info h4 {
+            color: #a78bfa;
+            margin-bottom: 5px;
+        }
+
+        .info p {
+            color: #c7c9d3;
+            font-size: 14px;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            padding: 25px 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.025);
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-7px);
+            border-color: #8b5cf6;
+        }
+
+        .skill .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .skill h3 {
+            font-size: 16px;
+        }
+
+        .skill p {
+            font-size: 13px;
+            color: #8d93a1;
+            margin-top: 5px;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(
+                145deg,
+                rgba(139,92,246,0.10),
+                rgba(255,255,255,0.025)
+            );
+            border: 1px solid rgba(255,255,255,0.09);
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #8b5cf6;
+        }
+
+        .project-number {
+            color: #8b5cf6;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .project h3 {
+            font-size: 25px;
+            margin: 10px 0;
+        }
+
+        .project p {
+            color: #9ca3af;
+            margin-bottom: 18px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(139,92,246,0.12);
+            color: #c4b5fd;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* EDUCATION */
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+            border-left: 2px solid #8b5cf6;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            box-shadow: 0 0 15px #8b5cf6;
+        }
+
+        .timeline-item h3 {
+            font-size: 21px;
+        }
+
+        .timeline-item .year {
+            color: #a78bfa;
+            font-size: 14px;
+        }
+
+        .timeline-item p {
+            color: #9ca3af;
+            margin-top: 6px;
+        }
+
+        /* CERTIFICATIONS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.025);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #8b5cf6;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+            padding: 45px;
+            border-radius: 25px;
+            background: rgba(139,92,246,0.08);
+            border: 1px solid rgba(139,92,246,0.25);
+        }
+
+        .contact-box p {
+            color: #a5a9b5;
+            margin: 15px 0 25px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            padding: 10px 18px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            border-color: #8b5cf6;
+            color: #c4b5fd;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            color: #777d8c;
+            font-size: 13px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* MOBILE */
+        @media(max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 500px) {
+            section {
+                padding: 75px 6%;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Divya<span>.</span></div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <div class="small-title">Hello, I'm</div>
+
+            <h1>Divya <span>Patil.</span></h1>
+
+            <h2>AI & Data Science Student</h2>
+
+            <p>
+                A passionate learner exploring Artificial Intelligence,
+                Data Science, Software Development and modern technologies.
+                Currently building my skills through projects and practical learning.
+            </p>
+
+            <div class="buttons">
+
+                <a class="btn btn-primary" href="#projects">
+                    View My Work
+                </a>
+
+                <a class="btn btn-outline"
+                   href="https://www.linkedin.com/in/divya-patil-71233636b/"
+                   target="_blank">
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+            <!-- Later we will upload your photo as profile.jpg -->
+            <img src="profile.jpg" alt="Divya Patil">
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About <span>Me</span></h2>
+            <p>A little introduction about me</p>
+        </div>
+
+        <div class="about">
+
+            <div class="about-text">
+
+                <p>
+                    I'm Divya Patil, a second-year Artificial Intelligence
+                    & Data Science student at Guru Gobind Singh College,
+                    Nashik under SPPU.
+                </p>
+
+                <p>
+                    I completed my Diploma in Computer Science & Engineering
+                    with 90.29%. I am currently strengthening my programming,
+                    problem-solving and Data Structures fundamentals.
+                </p>
+
+                <p>
+                    I enjoy learning new technologies and turning ideas
+                    into practical projects.
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info">
+                    <h4>🎓 Education</h4>
+                    <p>AI & Data Science</p>
+                </div>
+
+                <div class="info">
+                    <h4>📍 Location</h4>
+                    <p>Nashik, Maharashtra</p>
+                </div>
+
+                <div class="info">
+                    <h4>💻 Focus</h4>
+                    <p>AI & Software Development</p>
+                </div>
+
+                <div class="info">
+                    <h4>📊 Diploma</h4>
+                    <p>90.29%</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+            <p>Technologies I'm learning and working with</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <div class="icon">C</div>
+                <h3>C / C++</h3>
+                <p>Basic</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">☕</div>
+                <h3>Java</h3>
+                <p>Basic</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🐍</div>
+                <h3>Python</h3>
+                <p>Basic</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🌐</div>
+                <h3>HTML / CSS</h3>
+                <p>Web Development</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">⚡</div>
+                <h3>Bootstrap</h3>
+                <p>Web Development</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🗄️</div>
+                <h3>DBMS / SQL</h3>
+                <p>Basic</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">⚛️</div>
+                <h3>React</h3>
+                <p>Beginner</p>
+            </div>
+
+            <div class="skill">
+                <div class="icon">🧠</div>
+                <h3>DSA</h3>
+                <p>Currently Learning</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>Featured <span>Projects</span></h2>
+            <p>Some things I've built while learning</p>
+        </div>
+
+        <div class="projects">
+
+            <div class="project">
+
+                <div class="project-number">01 / PROJECT</div>
+
+                <h3>Genix AI</h3>
+
+                <p>
+                    An AI-focused educational and business website
+                    designed to help users explore Artificial Intelligence,
+                    Machine Learning and Robotics.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Bootstrap</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">Database</span>
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-number">02 / PROJECT</div>
+
+                <h3>Virtual Voice Assistant</h3>
+
+                <p>
+                    A Python-based voice assistant using speech recognition
+                    and text-to-speech technologies for interactive
+                    voice-based commands.
+                </p>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Eel</span>
+                    <span class="tag">pyttsx3</span>
+                    <span class="tag">Speech Recognition</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-title">
+            <h2>Education <span>& Journey</span></h2>
+            <p>My academic background</p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="year">2025 – Present</div>
+
+                <h3>B.E. / B.Tech – Artificial Intelligence & Data Science</h3>
+
+                <p>
+                    Guru Gobind Singh College of Engineering & Research Centre,
+                    Nashik — SPPU
+                </p>
+
+                <p>Second Year • Pursuing</p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="year">Completed</div>
+
+                <h3>Diploma – Computer Science & Engineering</h3>
+
+                <p>
+                    Completed Diploma in Computer Science & Engineering
+                    with <strong>90.29%</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE & CERTIFICATIONS -->
+    <section>
+
+        <div class="section-title">
+            <h2>Experience & <span>Achievements</span></h2>
+            <p>Learning beyond the classroom</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>💼 Web Development Internship</h3>
+
+                <p>
+                    Practical exposure to web development concepts,
+                    website creation and front-end development workflow.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🏆 Skill India Certificate</h3>
+
+                <p>
+                    Completed Skill India certification as part of
+                    professional and technical learning.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🚀 DIPEX Certificate</h3>
+
+                <p>
+                    Participated in technical project-based activities
+                    and gained practical experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Let's <span>Connect</span></h2>
+            <p>I'm always open to learning and new opportunities.</p>
+        </div>
+
+        <div class="contact-box">
+
+            <h2>Have an opportunity or idea?</h2>
+
+            <p>
+                Feel free to connect with me through LinkedIn or GitHub.
+            </p>
+
+            <div class="socials">
+
+                <a class="social"
+                   href="mailto:13052007@gmail.com">
+                    📧 Email
+                </a>
+
+                <a class="social"
+                   href="https://www.linkedin.com/in/divya-patil-71233636b/"
+                   target="_blank">
+                    💼 LinkedIn
+                </a>
+
+                <a class="social"
+                   href="https://github.com/DivyaPatil1316"
+                   target="_blank">
+                    🐙 GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Divya Patil • AI & Data Science
+
+    </footer>
+
+
+    <script>
+
+        // Smooth reveal animation when sections appear
+        const elements = document.querySelectorAll(
+            ".section-title, .about, .skill, .project, .card, .timeline-item"
+        );
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation =
+                            "fadeUp 0.8s ease forwards";
+
+                        observer.unobserve(entry.target);
+                    }
+
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        elements.forEach(element => {
+            element.style.opacity = "0";
+            observer.observe(element);
+        });
+
+    </script>
+
+</body>
+</html>
